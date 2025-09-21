@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Webpage</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="container">
+        <header class="header">
+            <div class="logo">JobConnect</div>
+            <div class="user-controls">
+                <select id="roleSelector" class="role-selector">
+                    <option value="seeker">Job Seeker</option>
+                    <option value="recruiter">Recruiter</option>
+                </select>
+                <button id="loginBtn" class="btn btn-secondary">Login</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="recruiterPanel" class="recruiter-panel" style="display: none;">
+                <h2>Recruiter Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalJobs">0</div>
+                        <div>Total Jobs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalApplications">0</div>
+                        <div>Applications</div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button id="addJobBtn" class="btn btn-success">+ Add New Job</button>
+                </div>
+            </div>
+
+            <div class="filters">
+                <input type="text" id="searchInput" class="search-bar" placeholder="Search jobs by title, company, or skills...">
+                <select id="typeFilter" class="filter-select">
+                    <option value="">All Types</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Remote">Remote</option>
+                </select>
+                <select id="locationFilter" class="filter-select">
+                    <option value="">All Locations</option>
+                    <option value="New York">New York</option>
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="London">London</option>
+                    <option value="Remote">Remote</option>
+                </select>
+                <select id="sortSelect" class="filter-select">
+                    <option value="date-desc">Latest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="salary-desc">Highest Salary</option>
+                    <option value="salary-asc">Lowest Salary</option>
+                </select>
+            </div>
+
+            <div id="jobsContainer" class="jobs-grid"></div>
+        </main>
+    </div>
+
+    <!-- Job Form Modal -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Add New Job</h2>
+                <button class="close-btn" onclick="closeModal('jobModal')">&times;</button>
+            </div>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label class="form-label">Job Title *</label>
+                    <input type="text" id="jobTitle" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Company *</label>
+                    <input type="text" id="jobCompany" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Location *</label>
+                    <input type="text" id="jobLocation" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Job Type *</label>
+                    <select id="jobType" class="form-select" required>
+                        <option value="">Select Type</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Salary Range *</label>
+                    <input type="text" id="jobSalary" class="form-input" placeholder="e.g., $70,000 - $90,000" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Skills Required</label>
+                    <input type="text" id="jobSkills" class="form-input" placeholder="e.g., JavaScript, React, Node.js">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Job Description *</label>
+                    <textarea id="jobDescription" class="form-textarea" required placeholder="Detailed job description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="detailTitle">Job Details</h2>
+                <button class="close-btn" onclick="closeModal('detailModal')">&times;</button>
+            </div>
+            <div id="jobDetailContent"></div>
+        </div>
+    </div>
+      <script src="js.js"></script>
+</body>
+</html>
+
+# Set your name and email globally
+git config --global user.name "Sravani Penabadi"
+git config --global user.email "your.email@example.com"
+
+# Or set it only for this repository
+git config user.name "Sravani Penabadi"
+git config user.email "your.email@example.com"
